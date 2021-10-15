@@ -1,0 +1,17 @@
+CREATE TABLE users(
+    `userid` int not null AUTO_INCREMENT,
+    `full_name` varchar(255),
+    `email` varchar(255),
+    `password` varchar(255),
+    PRIMARY KEY(`userid`),
+    INDEX (`userid`)
+);
+
+CREATE TABLE followed_topics(
+	`id` int not null AUTO_INCREMENT,
+    `followed_topic` varchar(255),
+    `userid` int,
+    PRIMARY KEY (`id`),
+    FOREIGN KEY (`userid`) REFERENCES users(`userid`),
+    INDEX (`userid`)
+)
