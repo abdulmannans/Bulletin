@@ -28,7 +28,9 @@
         color : white !important;
     }
     .bge{
-       padding-right: 200px;
+       margin-top: 1.2vw;
+       font-weight: bold;
+       font-size: 1vw;
     }
 </style>
     

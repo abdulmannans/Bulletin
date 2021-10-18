@@ -34,8 +34,8 @@
         <div id="mySidenav" class="sidenav">
                     <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
                     <a href="index.php">Home</a>
-                    <a href="/common/menu/topHeadlines.php">Top Headlines</a>
-                    <a href="followedTopics.php">Followed Topics</a>
+                    <a href="./common/menu/topHeadlines.php">Top Headlines</a>
+                    <a href="./common/menu/followedTopics.php">Followed Topics</a>
         </div>
         <ul class="hdrul"> 
             <li class="hdrli" onclick="openNav()">
@@ -52,7 +52,7 @@
                             $uname = htmlspecialchars($_SESSION["fullname"]);
                             echo "
                             
-                            <form action='/common/login/lgout.php'>
+                            <form action='./common/login/lgout.php'>
                             <li class='hdrli lgdin lgact'>
                                 <button class='btn hdrnavbtn btn-outline-dark' type='submit'>Logout</button>
                             </li>
@@ -65,7 +65,7 @@
                         }else{
                             echo "
                             <li class='hdrli lgdin lgact'>
-                            <a href='/common/login/login.php'>
+                            <a href='./common/login/login.php'>
                             Login
                             </a>
                             </li>";

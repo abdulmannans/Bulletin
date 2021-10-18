@@ -20,7 +20,7 @@
       if(mysqli_query($conn, $query)){
         $_SESSION["loggedin"] = true;
         $_SESSION["fullname"] = $fname;
-        header("location: index.php");
+        header("location:  ../../");
         exit;
 
       }else{
@@ -33,18 +33,20 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Document</title>
+    <title>BULLETIN - SignUp</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link href="../../css/signin.css" rel="stylesheet">
     <style>
-
+     h2 {
+        font-family: serif;
+    }
     </style>
   </head>
   <body class="text-center">
     
 <main class="form-signin">
   <form  action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
-  <h1 class="h3 mb-3 fw-normal">BULLETIN</h1>
+  <h2>BULLETIN</h2>
     <h1 class="h3 mb-3 fw-normal">Please sign up</h1>
 
     <div class="form-floating">
