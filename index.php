@@ -4,10 +4,10 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>BULLETIN</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <nav>
-        <?php include 'indexNav.php'; ?>
+        <?php include './common/nav/indexNav.php'; ?>
     </nav>
     <style>
     img{
@@ -54,7 +54,7 @@
         <h1>
            BULLETIN
         </h1>
-        <form action="searchResult.php" method="get">
+        <form action="./common/menu/searchResult.php" method="get">
             <input class="cntrinpt form-control" type="search" placeholder="What?.. When?.. Where?.." name="search" autocomplete="off"><br>
             <button class="btn cntrbtn btn-outline-dark" type="submit">Search</button>
         </form>

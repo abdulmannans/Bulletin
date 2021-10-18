@@ -1,5 +1,5 @@
 <?php
-    require 'connect.php';
+    require '../connect.php';
 
     session_start();
 
@@ -54,7 +54,7 @@
     <meta name="generator" content="Hugo 0.88.1">
     <title>Signin Template · Bootstrap v5.1</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <link href="signin.css" rel="stylesheet">
+    <link href="../../css/signin.css" rel="stylesheet">
   </head>
   <body class="text-center">
     

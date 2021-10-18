@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Document</title>
+    <title>BULLETIN-Search</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <nav>
-      <?php include 'nav.php'; ?>
+      <?php include '../nav/nav.php'; ?>
     </nav>
     <style>
       body{
@@ -14,21 +14,42 @@
         background-size:100% 100vh;
     }
     </style>
+   
   </head>
 <?php
-    $search = $_GET["search"];
+    $urlVaule = $_GET["search"];
+    $search = preg_replace('/\s+/', '%20', $urlVaule);
     $token = "a38578b35dd0a5ca4c94f7d5cf988bfd";
-    function search(string $q , string $apiToken){
+
+    function search(string $query , string $apiToken){
+      if(empty($query)){
+        
         $ch = curl_init();
-        curl_setopt($ch, CURLOPT_URL, 'https://gnews.io/api/v4/search?q='. $q .'&token='.$apiToken);
+        curl_setopt($ch, CURLOPT_URL, 'https://gnews.io/api/v4/top-headlines?token=a38578b35dd0a5ca4c94f7d5cf988bfd&lang=en');
         curl_setopt($ch,CURLOPT_RETURNTRANSFER,1);
         $data = curl_exec($ch);
         curl_close($ch);
         $json_array = json_decode($data, true);
         return $json_array['articles'];
+
+      }else{
+        $ch = curl_init();
+        curl_setopt($ch, CURLOPT_URL, 'https://gnews.io/api/v4/search?q='. $query .'&token='.$apiToken.'&lang=en');
+        curl_setopt($ch,CURLOPT_RETURNTRANSFER,1);
+        $data = curl_exec($ch);
+        curl_close($ch);
+        $json_array = json_decode($data, true);
+        return $json_array['articles'];
+      }
     }
 
     $response = search($search, $token);
+    echo "<script>
+            var input = document.getElementById('searchbox');
+            input.value ='".$urlVaule."';
+          </script>";
+
+
 
     
 

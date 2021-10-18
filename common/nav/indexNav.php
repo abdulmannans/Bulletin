@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <link rel="stylesheet" href="navbar.css">
+        <link rel="stylesheet" href="./css/navbar.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     </head>
     <script>
@@ -23,7 +23,9 @@
         color : white !important;
     }
     .bge{
-       padding-right: 200px;
+       margin-top: 1.2vw;
+       font-weight: bold;
+       font-size: 1vw;
     }
 </style>
 
@@ -31,9 +33,9 @@
     <nav >
         <div id="mySidenav" class="sidenav">
                     <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-                    <a href="#">Home</a>
-                    <a href="topHeadlines.php">Top Headlines</a>
-                    <a href="#">Followed Topics</a>
+                    <a href="index.php">Home</a>
+                    <a href="/common/menu/topHeadlines.php">Top Headlines</a>
+                    <a href="followedTopics.php">Followed Topics</a>
         </div>
         <ul class="hdrul"> 
             <li class="hdrli" onclick="openNav()">
@@ -41,7 +43,7 @@
                     &#9776;
                 </a>
             </li>
-            <li class="hdrli lgdin lgact">
+            
                     <?php
                         session_start();
             
@@ -49,19 +51,26 @@
                         if(isset($_SESSION["loggedin"])){
                             $uname = htmlspecialchars($_SESSION["fullname"]);
                             echo "
-                            <p class='bge'>$uname</p>
-                            <form action='lgout.php'>
                             
-                            <button class='btn hdrnavbtn btn-outline-dark' type='submit'>Logout</button>
+                            <form action='/common/login/lgout.php'>
+                            <li class='hdrli lgdin lgact'>
+                                <button class='btn hdrnavbtn btn-outline-dark' type='submit'>Logout</button>
+                            </li>
                             </form>
+
+                            <li class='hdrli lgdin lgact'>
+                                <p class='bge'>$uname</p>
+                            </li>
                             ";
                         }else{
-                            echo "<a href='Login.php'>
+                            echo "
+                            <li class='hdrli lgdin lgact'>
+                            <a href='/common/login/login.php'>
                             Login
-                            </a>";
+                            </a>
+                            </li>";
                         }
                     ?>
-            </li>
         </ul>
     </nav>
 </header>
